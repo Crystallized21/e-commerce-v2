@@ -1,6 +1,8 @@
 import {createRouter, RouterProvider} from "@tanstack/react-router";
-import './App.css'
 import { routeTree } from './routeTree.gen'
+import './App.css'
+import Banner from "@/components/Banner.tsx";
+import { ThemeProvider } from "@/components/theme-provider"
 
 const router = createRouter({routeTree});
 
@@ -13,7 +15,10 @@ declare module "@tanstack/react-router" {
 function App() {
     return (
         <>
-            <RouterProvider router={router}/>
+            <ThemeProvider defaultTheme={"dark"} storageKey={"vite-ui-theme"}>
+                <Banner/>
+                <RouterProvider router={router}/>
+            </ThemeProvider>
         </>
     )
 }

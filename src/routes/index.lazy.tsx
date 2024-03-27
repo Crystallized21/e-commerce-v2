@@ -1,7 +1,12 @@
 import { createLazyFileRoute } from '@tanstack/react-router'
-
-import Hero from "@/components/Examples/Hero.tsx";
+import Navbar from '@/components/Navbar'
+import CardThing from '@/components/CardThing.tsx'
 
 export const Route = createLazyFileRoute('/')({
-    component: Hero,
+    component: () => (
+        <>
+            <Navbar />
+            <CardThing />
+        </>
+    )
 })
