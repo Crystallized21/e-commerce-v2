@@ -1,5 +1,6 @@
 @tailwind base;
-
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
     :root {
@@ -46,4 +47,21 @@
         --input: 217.2 32.6% 17.5%;
         --ring: 212.7 26.8% 83.9;
     }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
 }

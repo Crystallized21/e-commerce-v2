@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { createLazyFileRoute } from '@tanstack/react-router'
-import Navbar from "@/components/Navbar.tsx";
+import Navbar from "@/components/shad/Navbar.tsx";
 
 const GpuLazy = () => {
     return (

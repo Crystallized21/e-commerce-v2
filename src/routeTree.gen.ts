@@ -16,12 +16,18 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const ProductsLazyImport = createFileRoute('/products')()
 const GpuLazyImport = createFileRoute('/gpu')()
 const CpuLazyImport = createFileRoute('/cpu')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const ProductsLazyRoute = ProductsLazyImport.update({
+  path: '/products',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/products.lazy').then((d) => d.Route))
 
 const GpuLazyRoute = GpuLazyImport.update({
   path: '/gpu',
@@ -63,6 +69,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GpuLazyImport
       parentRoute: typeof rootRoute
     }
+    '/products': {
+      preLoaderRoute: typeof ProductsLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -73,6 +83,7 @@ export const routeTree = rootRoute.addChildren([
   AboutLazyRoute,
   CpuLazyRoute,
   GpuLazyRoute,
+  ProductsLazyRoute,
 ])
 
 /* prettier-ignore-end */
