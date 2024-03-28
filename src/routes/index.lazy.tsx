@@ -5,8 +5,8 @@ import HeroShad from "@/components/shad/HeroShad.tsx";
 export const Route = createLazyFileRoute('/')({
     component: () => (
         <>
-            <Navbar/>
-            <HeroShad/>
+                <Navbar/>
+                <HeroShad/>
         </>
     )
 })

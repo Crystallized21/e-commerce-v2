@@ -42,7 +42,7 @@ export default function Navbar() {
   return (
     <div>
       <NavigationMenu>
-        <NavigationMenuList className="justify-between">
+        <NavigationMenuList className="flex-row justify-between">
           <NavigationMenuItem>
             <Link to="/">
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
